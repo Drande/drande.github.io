@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "ng build --configuration=production --base-href=/drande.github.io/ --output-path=dist",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:drande.github.io": "node dist/drande.github.io/server/server.mjs"
