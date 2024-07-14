@@ -1,0 +1,32 @@
+.p-menubar-custom.p-menubar {
+  background-color: rgba(0, 0, 0, 0.8);
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  --border-radius: 0;
+  padding: 0;
+  gap: 2rem;
+  .p-menuitem:not(.p-highlight):not(.p-disabled).p-focus > .p-menuitem-content {
+    background-color: transparent;
+  }
+  .p-menuitem-content {
+    border-radius: 0;
+  }
+  @media (max-width: 960px) {
+    .p-menubar-button {
+      order: -1;
+    }
+    padding: 0.5rem;
+  }
+  z-index: 1000;
+}
+
+.p-tabview-custom {
+  .p-tabview-nav-link {
+    padding: 1rem;
+  }
+}

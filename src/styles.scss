@@ -1,3 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+@layer reset, primeng, overrides;
+
 @import "primeicons/primeicons.css";
-@import "styles/resets.scss";
+
+@layer reset {
+  @import "styles/resets.scss";
+}
+@layer overrides {
+  @import "styles/overrides.scss";
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+.anchor {
+  padding-top: 40px;
+  margin-top: -40px;
+  @media (max-width: 960px) {
+    padding-top: 48px;
+    margin-top: -48px;
+  }
+}
