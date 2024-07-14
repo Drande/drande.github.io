@@ -1,0 +1,62 @@
+.game-grid {
+  display: grid;
+  padding: 4rem 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 20rem));
+  justify-content: space-evenly;
+  gap: 1rem;
+}
+
+.game-container {
+  position: relative;
+  min-width: 10rem;
+  max-width: 20rem;
+  &:hover {
+    .game-content {
+      opacity: 1;
+    }
+  }
+  border: 3px solid var(--surface-900);
+  transform: scale(0.95);
+  transition: transform 0.4s;
+  transform-origin: center;
+  &:hover {
+    transform: scale(1);
+    overflow: hidden;
+    border-image: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ff00ff);
+    border-image-slice: 1;
+    animation: borderAnimation 2s infinite linear;
+  }
+}
+
+.game-card {
+  width: 100%;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.game-content {
+  border-radius: inherit;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  transition: all 0.4s;
+}
+
+.game-thumbnail {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@keyframes borderAnimation {
+  0% { border-image-source: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ff00ff); }
+  50% { border-image-source: linear-gradient(45deg, #00ff00, #0000ff, #ff00ff, #ff0000); }
+  100% { border-image-source: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ff00ff); }
+}

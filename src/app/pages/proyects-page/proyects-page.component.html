@@ -1,0 +1,25 @@
+<section class="flex flex-column align-items-center w-full anchor" id="proyects">
+  <app-section-title title="Proyects" description="Take a look at some proyects and my contributions, you can hover over the cards for more details."></app-section-title>
+  <p-tabView styleClass="p-tabview-custom" class="w-full">
+    <p-tabPanel *ngFor="let collection of collections | async" [header]="collection.title + ' (' + collection.games_count + ')'">
+      <div class="game-grid">
+        <div *ngFor="let game of collection.games" class="game-container shadow-4">
+          <div class="game-card">
+            <img [src]="game.cover_url" alt="{{ game.title }} cover" class="game-thumbnail">
+            <div class="game-info p-2">
+              <h3>{{ game.title }}</h3>
+              <p><strong>Published At:</strong> {{ game.published_at | date:'MMM yyyy' }}</p>
+              <div class="flex flex-row gap-1">
+                <p-badge styleClass="px-2" [severity]="tag.severity" *ngFor="let tag of game.tags" [value]="tag.label | titlecase" />
+              </div>
+            </div>
+            <div class="game-content p-2 cursor-pointer text-white" (click)="handleCardClick(game)">
+              <p class="text-left">{{ game.short_text ?? descriptionMap[game.id] }}</p>
+              <span class="text-center text-white">Click to play now!</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </p-tabPanel>
+  </p-tabView>
+</section>
