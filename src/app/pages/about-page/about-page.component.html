@@ -1,1 +1,8 @@
-<p>about-page works!</p>
+<section id="about" class="anchor">
+  <app-section-title title="About me" description="A bit of background about myself and how I ended up being a videogame developer!"></app-section-title>
+  <div class="flex flex-row justify-content-center w-full">
+    <div class="flex flex-column gap-4 p-4" style="max-width: 70rem;">
+      <p *ngFor="let paragraph of paragraphs" class="text-center">{{ paragraph }}</p>
+    </div>
+  </div>
+</section>
