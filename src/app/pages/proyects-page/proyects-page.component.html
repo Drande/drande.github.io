@@ -1,5 +1,5 @@
 <section class="flex flex-column align-items-center w-full anchor" id="proyects">
-  <app-section-title title="Proyects" description="Take a look at some proyects and my contributions, you can hover over the cards for more details."></app-section-title>
+  <app-section-title title="Proyects" description="Take a look at some projects and my contributions. You can hover over the cards for more details."></app-section-title>
   <p-tabView styleClass="p-tabview-custom" class="w-full">
     <p-tabPanel *ngFor="let collection of collections | async" [header]="collection.title + ' (' + collection.games_count + ')'">
       <div class="game-grid">

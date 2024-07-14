@@ -19,8 +19,7 @@ import { SectionTitleComponent } from '../../components/section-title/section-ti
 export class ProyectsPageComponent {
   collections?: Observable<Collection[]>;
   descriptionMap: Record<number, string> = {
-    [2822685]: `A videogame created during my first Game Jam at Generation Colombia! My role in this proyect was mainly focused on Scripting for most gameplay interactions.
-    I created the scripts for scene navigation, player movement, animations, sound effects and background music and contributed to the game design.`
+    [2822685]: `A video game created during my first Game Jam at Generation Colombia! My role in this project was mainly focused on scripting for most gameplay interactions. I created the scripts for scene navigation, player movement, animations, sound effects and background music, and contributed to the game design.`
   }
 
   constructor(
