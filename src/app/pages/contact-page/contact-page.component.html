@@ -1,1 +1,16 @@
-<p>contact-page works!</p>
+<section id="contact" class="anchor">
+  <app-section-title title="Contact" description="A few ways you can know more about me."></app-section-title>
+  <div class="flex flex-column justify-content-center align-items-center gap-5 w-full px-4 py-4 text-center">
+    <div>
+      <p class="text-xl">You can contact me at <a class="font-semibold text-primary" [href]="'mailto:' + email">{{email}}</a>,
+        check more about me and my projects at <a class="font-semibold text-primary" [href]="itchioUrl" target="_blank">itch.io</a> or use any of the buttons below.</p>
+    </div>
+    <div class="flex flex-row gap-4">
+      <div *ngFor="let item of contactItems">
+        <a target="_blank" [href]="item.url">
+          <i [ngClass]="item.icon" style="font-size: 2.5rem;"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
