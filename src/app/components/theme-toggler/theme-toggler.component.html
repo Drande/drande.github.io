@@ -1,13 +1,13 @@
 <div class="flex flex-row gap-2 align-items-center">
   <div class="text-xl">
-    @if (isDarkMode) {
+    @if (isDarkTheme) {
       🌚
     } @else {
       🌞
     }
   </div>
   <p-inputSwitch class="flex"
-    [ngModel]="isDarkMode"
+    [ngModel]="isDarkTheme"
     (ngModelChange)="toggleTheme()"
   />
 </div>

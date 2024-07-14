@@ -1,7 +1,8 @@
-import { DOCUMENT } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, Inject, PLATFORM_ID, Renderer2 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { InputSwitchModule } from 'primeng/inputswitch';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-theme-toggler',
@@ -11,26 +12,46 @@ import { InputSwitchModule } from 'primeng/inputswitch';
   styleUrl: './theme-toggler.component.scss'
 })
 export class ThemeTogglerComponent {
-  #document = inject(DOCUMENT);
-  isDarkMode: boolean;
-  lightTag: HTMLLinkElement;
-  darkTag: HTMLLinkElement;
+  private stylesheetLink?: HTMLLinkElement;
 
-  constructor() {
-    this.darkTag = this.#document.getElementById('app-theme-dark') as HTMLLinkElement;
-    this.lightTag = this.#document.getElementById('app-theme-light') as HTMLLinkElement;
-    this.isDarkMode = !this.darkTag.disabled;
+  constructor(
+    private renderer: Renderer2,
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private themeService: ThemeService
+  ) {}
+
+  ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.loadTheme();
+    }
+  }
+
+  loadTheme() {
+    const theme = this.themeService.getTheme();
+    const themeFile = theme === 'dark' ? 'theme-dark.css' : 'theme-light.css';
+    this.addStylesheet(themeFile);
+  }
+
+  addStylesheet(href: string) {
+    this.stylesheetLink = this.renderer.createElement('link');
+    this.stylesheetLink!.rel = 'stylesheet';
+    this.stylesheetLink!.href = href;
+    this.renderer.appendChild(document.head, this.stylesheetLink);
+  }
+
+  removeStylesheet() {
+    if (this.stylesheetLink) {
+      this.renderer.removeChild(document.head, this.stylesheetLink);
+    }
   }
 
   toggleTheme() {
-    if (this.darkTag.disabled) {
-      this.darkTag.disabled = false;
-      this.lightTag.disabled = true;
-      this.isDarkMode = true;
-    } else {
-      this.lightTag.disabled = false;
-      this.darkTag.disabled = true;
-      this.isDarkMode = false;
-    }
+    this.removeStylesheet();
+    this.themeService.toggleTheme();
+    this.loadTheme();
+  }
+
+  get isDarkTheme () {
+    return this.themeService.isDarkTheme();
   }
 }
