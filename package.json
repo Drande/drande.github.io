@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "node set-environment && ng serve",
+    "build": "node set-environment && ng build",
     "build:prod": "ng build --configuration=production --base-href=/drande.github.io/ --output-path=dist",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
@@ -22,6 +22,7 @@
     "@angular/platform-server": "^18.1.0",
     "@angular/router": "^18.1.0",
     "@angular/ssr": "^18.1.0",
+    "dotenv": "^16.4.5",
     "express": "^4.18.2",
     "primeflex": "^3.3.1",
     "primeicons": "^7.0.0",
