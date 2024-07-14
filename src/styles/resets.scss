@@ -1,4 +1,4 @@
-* {
+p,h1,h2,h3,h4,h5,h6,body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -33,25 +33,10 @@ table {
   border-spacing: 0;
 }
 
-/* Remove default button and input styles */
-button, input, select, textarea {
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  background: none;
-  border: none;
-  outline: none;
-}
-
 /* Ensure media elements fit their container */
 img, picture, video, canvas, svg {
   display: block;
   max-width: 100%;
-}
-
-/* Remove default form element margins */
-button, input, select, textarea {
-  margin: 0;
 }
 
 /* Provide basic styles for blockquotes */
@@ -68,5 +53,5 @@ q::before, q::after {
 *,
 *::before,
 *::after {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }

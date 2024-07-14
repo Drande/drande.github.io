@@ -1,6 +1,9 @@
 .p-menubar-custom.p-menubar {
   background-color: rgba(0, 0, 0, 0.8);
-  margin: 0;
+  &, & * {
+    margin: 0;
+    padding: 0;
+  }
   border: none;
   border-radius: 0;
   width: 100%;
@@ -8,7 +11,6 @@
   display: flex;
   justify-content: center;
   --border-radius: 0;
-  padding: 0;
   gap: 2rem;
   .p-menuitem:not(.p-highlight):not(.p-disabled).p-focus > .p-menuitem-content {
     background-color: transparent;
@@ -21,6 +23,15 @@
       order: -1;
     }
     padding: 0.5rem;
+    .p-menubar-root-list {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+  }
+  .p-menubar-button {
+    color: white;
+    :hover {
+      color: var(--surface-900);
+    }
   }
   z-index: 1000;
 }

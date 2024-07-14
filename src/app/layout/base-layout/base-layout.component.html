@@ -1,4 +1,4 @@
-<p-menubar [model]="items" styleClass="p-menubar-custom">
+<p-menubar [model]="items" styleClass="p-menubar-custom" class="hide-print">
   <ng-template pTemplate="start">
     <div class="flex flex-grow-1 gap-4 align-items-center">
       <h3 class="text-white">Jorge Fernández</h3>
@@ -22,6 +22,6 @@
   <router-outlet></router-outlet>
 </div>
 <!-- Footer -->
-<div class="bg-primary flex flex-column gap-2 align-items-center justify-content-center py-1 px-2">
+<div class="bg-primary flex flex-column gap-2 align-items-center justify-content-center py-1 px-2 hide-print">
   <span class="text-white">Copyright © 2024 by Jorge Fernández</span>
 </div>

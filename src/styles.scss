@@ -23,3 +23,9 @@ html {
     margin-top: -48px;
   }
 }
+
+.hide-print {
+  @media print {
+    display: none !important;
+  }
+}

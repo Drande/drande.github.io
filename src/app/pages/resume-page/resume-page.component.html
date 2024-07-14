@@ -1,1 +1,95 @@
-<p>resume-page works!</p>
+<div class="flex justify-content-center p-2 hide-print">
+  <p-button label="Print" [raised]="true" (onClick)="printPage()"></p-button>
+</div>
+<div class="flex flex-column gap-2 html-page">
+  <section class="p-grid p-ai-center">
+    <div class="w-full text-center flex flex-column gap-1">
+      <h1>{{ personalInfo.name }}</h1>
+      <h4>{{ personalInfo.title }}</h4>
+      <div class="flex flex-row flex-wrap column-gap-3 row-gap-1 align-items-center justify-content-center">
+        <div class="flex gap-2 align-items-center white-space-nowrap">
+          <i class="pi pi-phone"></i><span>{{ personalInfo.phone }}</span>
+        </div>
+        <div class="flex gap-2 align-items-center">
+          <i class="pi pi-envelope"></i><a [href]="'mailto:' + personalInfo.email" >{{ personalInfo.email }}</a>
+        </div>
+        <div class="flex gap-2 align-items-center">
+          <i class="pi pi-linkedin"></i><a [href]="personalInfo.linkedin" target="_blank">LinkedIn</a>
+        </div>
+        <div class="flex gap-2 align-items-center">
+          <i class="pi pi-globe"></i><a [href]="personalInfo.portfolio" target="_blank">Portfolio</a>
+        </div>
+      </div>
+      <p>{{ personalInfo.location }}</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="text-justify">{{ personalInfo.about }}</p>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <ul class="flex flex-column gap-3">
+      <li *ngFor="let edu of education">
+        <div class="flex justify-content-between">
+          <span class="font-italic">{{ edu.institution }}</span>
+          <span>{{ edu.dates }}</span>
+        </div>
+        <strong class="block">{{ edu.degree }}</strong>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Work Experience</h2>
+    <ul class="flex flex-column gap-3">
+      <li *ngFor="let job of workExperience">
+        <div class="flex justify-content-between">
+          <span class="font-italic">{{ job.company }}, {{ job.location }}</span>
+          <span class="block">{{ job.dates }}</span>
+        </div>
+        <strong class="block">{{ job.position }}</strong>
+        <ul class="dotted-list">
+          <li *ngFor="let achievement of job.achievements">{{ achievement }}</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+    <ul class="flex flex-column gap-3">
+      <li *ngFor="let project of projects">
+        <div class="flex justify-content-between">
+          <a [href]="project.experienceUrl" target="_blank" class="font-italic">{{ project.experience }}</a>
+          <span class="block">{{ project.dates }}</span>
+        </div>
+        <a [href]="project.projectUrl"><strong>{{ project.name }}</strong></a>
+        <strong class="block">{{ project.role }}</strong>
+        <ul class="dotted-list">
+          <li *ngFor="let achievement of project.achievements">{{ achievement }}</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <ul class="dotted-list">
+      <li>{{ skills.join(' | ') }}</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Languages</h2>
+    <ul class="dotted-list">
+      <li *ngFor="let language of languages">
+        <span *ngIf="language.url; else plainText">
+          <a [href]="language.url" target="_blank">{{ language.label }}</a>
+        </span>
+        <ng-template #plainText>{{ language.label }}</ng-template>
+      </li>
+    </ul>
+  </section>
+</div>
