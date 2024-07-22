@@ -12,7 +12,7 @@ const ICON_CLASSNAME: string = " hover:text-primary transition-duration-400";
   styleUrl: './contact-page.component.scss'
 })
 export class ContactPageComponent {
-  email: string = "jorgejgdrj41@gmail.com";
+  email: string = "jorgeandresfernandezmedina@gmail.com";
   itchioUrl: string = "https://drande.itch.io/";
 
   contactItems: MenuItem[] = [
