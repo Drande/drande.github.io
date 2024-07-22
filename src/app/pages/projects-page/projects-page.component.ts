@@ -54,6 +54,7 @@ export class ProjectsPageComponent {
 
   stateMap: Record<number, string> = {
     [2822685]: "Development",
+    [2848838]: "Completed",
     [2794044]: "Completed",
     [2794180]: "Completed",
     [2794420]: "Completed",
