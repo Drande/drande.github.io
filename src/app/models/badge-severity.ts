@@ -1,0 +1,1 @@
+export type BadgeSeverity = "success" | "info" | "warning" | "danger" | "help" | "primary" | "secondary" | "contrast" | null | undefined;

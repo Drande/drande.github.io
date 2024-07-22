@@ -7,15 +7,42 @@
           <div class="game-card">
             <img [src]="game.cover_url" alt="{{ game.title }} cover" class="game-thumbnail">
             <div class="game-info p-2">
-              <h3>{{ game.title }}</h3>
-              <p><strong>Published At:</strong> {{ game.published_at | date:'MMM yyyy' }}</p>
-              <div class="flex flex-row gap-1">
-                <p-badge styleClass="px-2" [severity]="tag.severity" *ngFor="let tag of game.tags" [value]="tag.label | titlecase" />
+              <div class="flex justify-content-between align-items-center">
+                <h3>{{ game.title }}</h3>
+                <div class="flex align-items-center gap-1">
+                  <i [class]="viewIcon"></i><span>{{game.views_count}}</span>
+                </div>
+              </div>
+              <div class="flex flex-column gap-1">
+                <div class="flex flex-row flex-wrap gap-1 justify-content-between align-items-center">
+                  <p><strong>Published At:</strong> {{ game.published_at | date:'MMM yyyy' }}</p>
+                  <ng-container *ngIf="stateMap[game.id]; let state">
+                    <div class="flex flex-row flex-wrap gap-1 justify-content-end align-items-center">
+                      <p-badge styleClass="px-2" [severity]="severityPerState[state] ?? 'secondary'" [value]="state" />
+                    </div>
+                  </ng-container>
+                </div>
+                <div class="flex flex-row flex-wrap align-items-center gap-1">
+                  <p><strong>Tags:</strong></p>
+                  <p-badge styleClass="px-2" [severity]="tag.severity" *ngFor="let tag of game.tags" [value]="tag.label | titlecase" />
+                </div>
+                <ng-container *ngIf="contributionsMap[game.id]; let items">
+                  <div class="flex flex-row flex-wrap align-items-center gap-1">
+                    <p><strong>Contributions: </strong></p>
+                    <p-badge styleClass="px-2" severity="secondary" *ngFor="let item of items" [value]="item" />
+                  </div>
+                </ng-container>
+                <ng-container *ngIf="skillsAppliedMap[game.id]; let items">
+                  <div class="flex flex-row flex-wrap align-items-center gap-1">
+                    <p><strong>Skills applied: </strong></p>
+                    <p-badge styleClass="px-2" severity="secondary" *ngFor="let item of items" [value]="item" />
+                  </div>
+                </ng-container>
               </div>
             </div>
-            <div class="game-content p-2 cursor-pointer text-white" (click)="handleCardClick(game)">
-              <p class="text-left">{{ game.short_text ?? descriptionMap[game.id] }}</p>
-              <span class="text-center text-white">Click to play now!</span>
+              <div class="game-content p-5 cursor-pointer text-white" (click)="handleCardClick(game)">
+              <p class="text-xl text-center">{{ game.short_text ?? descriptionMap[game.id] }}</p>
+              <span class="text-center text-white text-xl">Click to play or download!</span>
             </div>
           </div>
         </div>

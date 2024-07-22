@@ -1,3 +1,5 @@
+import { BadgeSeverity } from "./badge-severity";
+
 export interface GameBase {
   classification:  string;
   has_demo:        boolean;
@@ -18,12 +20,11 @@ export interface GameBase {
   created_at:      Date;
   can_be_bought:   boolean;
   short_text?:     string;
-  tags?:           GameTag[];
 }
 
 export interface GameTag {
   label: string;
-  severity: "success" | "info" | "warning" | "danger" | "help" | "primary" | "secondary" | "contrast" | null | undefined;
+  severity: BadgeSeverity;
 }
 
 export interface Game extends GameBase {
@@ -31,6 +32,7 @@ export interface Game extends GameBase {
   published:       boolean;
   purchases_count: number;
   downloads_count: number;
+  tags?:           GameTag[];
 }
 
 

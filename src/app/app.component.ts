@@ -17,8 +17,7 @@ export class AppComponent {
     private gamesService: GamesService,
   ) {
     // Cache SSR Results.
-    this.subscription = this.gamesService.getCollections().subscribe(() => {
-      this.subscription?.unsubscribe();
-    });
+    this.subscription = this.gamesService.getCollections().subscribe(() => { });
+    this.subscription = this.gamesService.getGames().subscribe(() => { });
   }
 }

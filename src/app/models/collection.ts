@@ -1,4 +1,4 @@
-import { GameBase } from "./game";
+import { Game, GameBase } from "./game";
 
 export interface Collection {
   id:          number;
@@ -7,6 +7,10 @@ export interface Collection {
   created_at:  Date;
   games_count: number;
   games:       GameBase[];
+}
+
+export interface CompleteCollection extends Collection {
+  games: Game[];
 }
 
 export interface Embed {
