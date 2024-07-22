@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { map, Observable, of, tap } from 'rxjs';
 import { Collection } from '../models/collection';
 import { environment } from '../../environments/environment';
+import { Game } from '../models/game';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +34,11 @@ export class GamesService {
         })
       );
     }
+  }
+
+  public getGames(): Observable<{ games: Game[] }> {
+    const url = this.apiBaseUrl + "my-games";
+    return this.get<{ games: Game[] }>(url).pipe(map(r => r ?? { games: [] }));
   }
 
   public getCollections(): Observable<{ collections: Collection[] }> {
