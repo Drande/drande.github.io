@@ -12,13 +12,13 @@ import { PrimeIcons } from 'primeng/api';
 import { BadgeSeverity } from '../../models/badge-severity';
 
 @Component({
-  selector: 'app-proyects-page',
+  selector: 'app-projects-page',
   standalone: true,
   imports: [NgIf, NgFor, JsonPipe, AsyncPipe, DatePipe, TitleCasePipe, TabViewModule, ButtonModule, BadgeModule, SectionTitleComponent],
-  templateUrl: './proyects-page.component.html',
-  styleUrl: './proyects-page.component.scss'
+  templateUrl: './projects-page.component.html',
+  styleUrl: './projects-page.component.scss'
 })
-export class ProyectsPageComponent {
+export class ProjectsPageComponent {
   viewIcon: string = PrimeIcons.EYE;
   collections?: Observable<CompleteCollection[]>;
   descriptionMap: Record<number, string> = {

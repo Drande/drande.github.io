@@ -21,10 +21,10 @@ export class BaseLayoutComponent {
       fragment: "home",
     },
     {
-      label: "Proyects",
+      label: "Projects",
       icon: PrimeIcons.FILE,
       routerLink: "/",
-      fragment: "proyects",
+      fragment: "projects",
     },
     {
       label: "About me",
