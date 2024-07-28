@@ -32,6 +32,12 @@ export class ProjectsPageComponent {
       "Game design",
       "Gameplay interactions",
     ],
+    [2850090]: [
+      "Project management",
+      "DevOps",
+      "Lead programmer",
+      "Code architecture"
+    ]
   }
   
   skillsAppliedMap: Record<number, string[]> = {
@@ -54,6 +60,7 @@ export class ProjectsPageComponent {
 
   stateMap: Record<number, string> = {
     [2822685]: "Development",
+    [2850090]: "Development",
     [2848838]: "Completed",
     [2794044]: "Completed",
     [2794180]: "Completed",
