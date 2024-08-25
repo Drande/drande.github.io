@@ -36,7 +36,12 @@ export class ProjectsPageComponent {
       "Project management",
       "DevOps",
       "Lead programmer",
-      "Code architecture"
+      "Code architecture",
+    ],
+    [2887980]: [
+      "Movement and animations",
+      "Gameplay development",
+      "Game design",
     ]
   }
   
