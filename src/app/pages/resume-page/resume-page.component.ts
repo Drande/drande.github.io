@@ -26,7 +26,7 @@ export class ResumePageComponent {
   education = [
     {
       institution: 'Generation Colombia, Bogotá, Colombia',
-      dates: '06/2024 - Ongoing',
+      dates: '06/2024 - 09/2024',
       degree: 'Unity Developer'
     },
     {
@@ -89,6 +89,28 @@ export class ResumePageComponent {
       role: 'Unity Game Programmer',
       achievements: [
         'I developed movement scripts, UI navigation, audio handling, collisions and animations.',
+      ]
+    },
+    {
+      experience: 'Generation Colombia, Game Jam 2 "Grow"',
+      experienceUrl: 'https://itch.io/jam/growgamejam',
+      projectUrl: 'https://acchan23.itch.io/ghost-whisperer-annes-diary',
+      name: "Ghost Whisperer Anne's Diary",
+      dates: '07/2024',
+      role: 'Lead Developer',
+      achievements: [
+        'Led the development of a Unity project, overseeing all technical aspects and ensuring successful project delivery.',
+      ]
+    },
+    {
+      experience: 'Generation Colombia, Final Project',
+      experienceUrl: null,
+      projectUrl: 'https://germanmunoz.itch.io/ancestral-guardians',
+      name: 'Ancestral Guardians',
+      dates: '08/2024',
+      role: 'Gameplay and UI Developer',
+      achievements: [
+        'I participated as a gameplay developer and also contributed to UI scripting, enhancing both the player experience and interface functionality.',
       ]
     }
   ];

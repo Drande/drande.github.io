@@ -1,7 +1,7 @@
 <div class="flex justify-content-center p-2 hide-print">
   <p-button label="Print" [raised]="true" (onClick)="printPage()"></p-button>
 </div>
-<div class="flex flex-column gap-2 html-page">
+<div class="flex flex-column gap-3 html-page">
   <section class="p-grid p-ai-center">
     <div class="w-full text-center flex flex-column gap-1">
       <h1>{{ personalInfo.name }}</h1>
@@ -62,7 +62,10 @@
     <ul class="flex flex-column gap-3">
       <li *ngFor="let project of projects">
         <div class="flex justify-content-between">
-          <a [href]="project.experienceUrl" target="_blank" class="font-italic">{{ project.experience }}</a>
+          <a *ngIf="project.experienceUrl else noUrl" [href]="project.experienceUrl" target="_blank" class="font-italic">{{ project.experience }}</a>
+          <ng-template #noUrl>
+            <span class="font-italic">{{ project.experience }}</span>
+          </ng-template>
           <span class="block">{{ project.dates }}</span>
         </div>
         <a [href]="project.projectUrl"><strong>{{ project.name }}</strong></a>
